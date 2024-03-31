@@ -22,7 +22,6 @@ import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -61,9 +60,6 @@ public class SearchOrder extends JFrame {
     private final JPanel controllers;
     private JButton searchAnother;
     private JButton backTo;
-    private JButton btnOk;
-    private JButton btnYESanother;
-    private JButton btnNOanother;
 
     public SearchOrder() {
         setSize(1100, 640);
@@ -73,7 +69,7 @@ public class SearchOrder extends JFrame {
 
         setResizable(false);
         setLayout(new BorderLayout());
-        
+
         // set image icon
         setIconImage(OrderController.favicon);
 
@@ -299,7 +295,7 @@ public class SearchOrder extends JFrame {
                 totalValueDetail.setText("");
                 orderStatusDetail.setText("");
                 searchInput.setEditable(true);
-
+                searchValidMessage.setText("");
             }
         });
 
@@ -311,125 +307,6 @@ public class SearchOrder extends JFrame {
                 setVisible(false);
             }
         });
-
-        // pop up message box
-        // ok button
-        btnOk = new JButton("OK");
-        btnOk.setFont(new Font("", 1, 16));
-        btnOk.setBackground(OrderController.SecondColor);
-        btnOk.setForeground(Color.white);
-        btnOk.setBorderPainted(false);
-        btnOk.setFocusPainted(false);
-
-        btnOk.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                btnOk.setBackground(OrderController.OverSecond);
-                btnOk.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                btnOk.setBackground(OrderController.SecondColor);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent me) {
-                btnOk.setForeground(Color.black);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-                btnOk.setForeground(Color.white);
-            }
-        });
-        btnOk.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                JOptionPane.getRootFrame().dispose();
-            }
-        });
-        JButton[] btnOkCustom = {btnOk};
-
-        // yes/no another buttons
-        // yes another
-        btnYESanother = new JButton("YES");
-        btnYESanother.setFont(new Font("", 1, 16));
-        btnYESanother.setBackground(OrderController.SecondColor);
-        btnYESanother.setForeground(Color.white);
-        btnYESanother.setBorderPainted(false);
-        btnYESanother.setFocusPainted(false);
-
-        btnYESanother.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                btnYESanother.setBackground(OrderController.OverSecond);
-                btnYESanother.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                btnYESanother.setBackground(OrderController.SecondColor);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent me) {
-                btnYESanother.setForeground(Color.black);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-                btnYESanother.setForeground(Color.white);
-            }
-        });
-        btnYESanother.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                new SearchOrder().setVisible(true);
-                setVisible(false);
-                JOptionPane.getRootFrame().dispose();
-            }
-        });
-
-        // no another
-        btnNOanother = new JButton("NO");
-        btnNOanother.setFont(new Font("", 1, 16));
-        btnNOanother.setBackground(OrderController.MainColor);
-        btnNOanother.setForeground(Color.white);
-        btnNOanother.setBorderPainted(false);
-        btnNOanother.setFocusPainted(false);
-
-        btnNOanother.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseEntered(MouseEvent me) {
-                btnNOanother.setBackground(OrderController.OverMain);
-                btnNOanother.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            }
-
-            @Override
-            public void mouseExited(MouseEvent me) {
-                btnNOanother.setBackground(OrderController.MainColor);
-            }
-
-            @Override
-            public void mousePressed(MouseEvent me) {
-                btnNOanother.setForeground(Color.black);
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent me) {
-                btnNOanother.setForeground(Color.white);
-            }
-        });
-        btnNOanother.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent evt) {
-                new HomePage().setVisible(true);
-                setVisible(false);
-                JOptionPane.getRootFrame().dispose();
-            }
-        });
-        JButton[] btnYESorNOanotherCustom = {btnYESanother, btnNOanother};
 
         // search details display
         searchInput.getDocument().addDocumentListener(new DocumentListener() {
@@ -467,8 +344,7 @@ public class SearchOrder extends JFrame {
                         totalValueDetail.setText(totalString);
                         orderStatusDetail.setText(orderStatus);
                     } else {
-                        JOptionPane.showOptionDialog(null, "Invalid Order ID!", "Check Order ID", JOptionPane.OK_OPTION, JOptionPane.PLAIN_MESSAGE, OrderController.errorIcon, btnOkCustom, btnOkCustom[0]);
-                        JOptionPane.showOptionDialog(null, "Do you want to enter again?", "Search Order", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, OrderController.questionIcon, btnYESorNOanotherCustom, btnYESorNOanotherCustom[0]);
+                        searchValidMessage.setText(" * Invalid Order ID!");
                     }
                 }
             }

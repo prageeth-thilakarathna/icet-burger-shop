@@ -69,6 +69,7 @@ public class UpdateOrder extends JFrame {
     private JButton btnOk;
     private JButton btnYESanother;
     private JButton btnNOanother;
+    private JLabel orderIdError;
 
     public UpdateOrder() {
         setSize(1100, 640); 
@@ -234,8 +235,10 @@ public class UpdateOrder extends JFrame {
         errorStatus.setFont(new Font("", 1, 12));
         errorMessage.add(errorStatus);
 
-        JLabel empty1 = new JLabel("");
-        errorMessage.add(empty1);
+        orderIdError = new JLabel("");
+        orderIdError.setForeground(Color.red);
+        orderIdError.setFont(new Font("", 1, 12));
+        errorMessage.add(orderIdError);
 
         JLabel empty2 = new JLabel("");
         errorMessage.add(empty2);
@@ -540,8 +543,8 @@ public class UpdateOrder extends JFrame {
                         }
 
                     } else {
-                        JOptionPane.showOptionDialog(null, "Invalid Order ID!", "Check Order ID", JOptionPane.OK_OPTION, JOptionPane.PLAIN_MESSAGE, OrderController.errorIcon, btnOkCustom, btnOkCustom[0]);
-                        JOptionPane.showOptionDialog(null, "Do you want to enter again?", "Another Option", JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE, OrderController.questionIcon, btnYESorNOanotherCustom, btnYESorNOanotherCustom[0]);
+                        orderIdError.setText(" * Invalid Order ID!");
+                        inputOrderID.setEditable(false);
                     }
                 }
             }

@@ -19,7 +19,7 @@ public class MyCanvas extends Canvas {
     @Override
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/burgerShopVector.jpg");
+        Image i = t.getImage("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/burgerShopVector.jpg");
         g.drawImage(i, 140, 60, this);
     }
 }

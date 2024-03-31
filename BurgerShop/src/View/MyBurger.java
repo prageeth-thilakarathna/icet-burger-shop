@@ -18,7 +18,7 @@ public class MyBurger extends Canvas {
     @Override
     public void paint(Graphics g) {
         Toolkit t = Toolkit.getDefaultToolkit();
-        Image i = t.getImage("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/burger.png");
+        Image i = t.getImage("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/burger.png");
         g.drawImage(i, 100, 160, this);
     }
 }

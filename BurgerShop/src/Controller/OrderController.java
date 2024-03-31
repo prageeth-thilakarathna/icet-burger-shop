@@ -26,12 +26,12 @@ public class OrderController {
     public static OrderList bestCust = new OrderList();
 
     // icons
-    public static final ImageIcon successIcon = new ImageIcon("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/success-icon.png");
-    public static final ImageIcon questionIcon = new ImageIcon("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/question-icon.png");
-    public static final ImageIcon errorIcon = new ImageIcon("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/error-icon.png");
-    
+    public static final ImageIcon successIcon = new ImageIcon("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/success-icon.png");
+    public static final ImageIcon questionIcon = new ImageIcon("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/question-icon.png");
+    public static final ImageIcon errorIcon = new ImageIcon("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/error-icon.png");
+
     // favicon
-    public static final Image favicon = Toolkit.getDefaultToolkit().getImage("C:/Users/ygpra/Desktop/Java Application/OOP-DAY-04/Swing Coursework/BurgerShop/src/Resources/burger-favicon.png");
+    public static final Image favicon = Toolkit.getDefaultToolkit().getImage("C:/Users/ygpra/Desktop/iCET Assignments and Coursework/OOP/OOP DAY 04 - Swing Coursework Milestone 02/BurgerShop/BurgerShop/src/Resources/burger-favicon.png");
 
     // colors
     public static final Color SecondColor = new Color(100, 140, 13);
